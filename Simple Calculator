@@ -1,0 +1,122 @@
+#operation definitions
+"""
+def division(int1, int2):
+    print("Your Resulting Value is: ", str(int1/int2))
+def subtraction(int1, int2):
+    print("Your Resulting Value is: ", str(int1-int2))
+def addition(int1, int2):
+    print("Your Resulting Value is: ", str(int1+int2))
+def multiplication(int1, int2):
+    print("Your Resulting Value is: ", str(int1*int2))
+def power(int1, int2):
+    print("Your Resulting Value is: ", str(int1**int2))
+"""
+
+#Variable Definition
+equ_array=["A+B", "A-B", "A*B", "A/B", "A^B", "c^2=A^2+B^2"]
+ans=0
+
+#Operator Selection
+print("Welcome to the calculator.")
+opp=0
+while opp!= "quit":
+    print("Please indicate your operation type:\n1-addition\n2-subtraction\n3-multiplication\n4-division\n5-power\n6-hypotenuse\ntype 'quit' to quit")
+    looper = True
+    while looper == True:
+        opp=input("Type of Operation: ")
+
+        if opp == "1" or opp == "2" or opp == "3" or opp == "4" or opp == "5" or opp == "6" or opp == "7":
+            opp=int(opp)
+            looper = False
+        elif opp == "quit":
+            break
+        else:
+            print("invalid input")
+    if opp=="quit":
+        continue
+    equ=equ_array[opp-1]
+
+    #Value Selection
+    print("Your equation will be in the form of %s" %equ)
+        #---Hypotenuse Value Selection---
+    if opp==7:
+        hyp_opp=input("Would you like to solve for A, B, or C: ")
+        if hyp_opp=="A" or hyp_opp=="B":
+            print("Your equation is now in the form of (A^2-B^2)^0.5")
+        elif hyp_opp=="C":
+            print("Your equation is now in the form of (A^2+B^2)^0.5")
+
+    else:
+        print(" ")
+        #--------------------------------
+    print("Input 'ans' to use previous value for A or B")
+    A=input("A= ")
+    if A=="ans":
+        A=ans
+    else:
+        A=float(A)
+    B=input("B= ")
+    if B=="ans":
+        B=ans
+    else:
+        B=float(B)
+
+    #Operation Execution
+    if opp == 1:
+        val=A+B
+        print("Your Resulting Value is: %f\n" %val)
+    elif opp == 2:
+        val=A-B
+        print("Your Resulting Value is: %f\n" %val)
+    elif opp == 3:
+        val=A*B
+        print("Your Resulting Value is: %f\n" %val)
+    elif opp == 4:
+        val=A/B
+        print("Your Resulting Value is: %f\n" %val)
+    elif opp == 5:
+        val=A**B
+        print("Your Resulting Value is: %f\n" %val)
+    elif opp == 6:
+        if hyp_opp=="A" or hyp_opp=="B":
+            intval1=A**2
+            intval2=B**2
+            intval3=intval1-intval2
+            val=intval3**0.5
+            print("Your Resulting Value is: %f\n" %val)
+        elif hyp_opp=="C":
+            intval1=A**2
+            intval2=B**2
+            intval3=intval1+intval2
+            val=intval3**0.5
+            print("Your Resulting Value is: %f\n" %val)
+    
+    #Remember resulting value
+    looper3=True
+    while looper3==True:
+        rmbr=input("Remember answer? (Y/N): ")
+        if rmbr=="Y" or rmbr=="yes" or rmbr=="Yes":
+            ans=val
+            looper3==False
+            break
+        elif rmbr=="N" or rmbr=="no" or rmbr=="No":
+            looper3=False
+            break
+        else:
+            print("Invalid input")
+
+    #Continue Loop
+    looper2=True
+    while looper2==True:
+        cont=input("Continue? (Y/N): ")
+        if cont=="Y" or cont=="yes" or cont=="Yes":
+            looper2==False
+            break
+        elif cont=="N" or cont=="no" or cont=="No":
+            opp="quit"
+            looper2=False
+            break
+        else:
+            print("Invalid input")
+
+print("Thank you for using the calculator!")
