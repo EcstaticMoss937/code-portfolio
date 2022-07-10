@@ -13,7 +13,7 @@ def power(int1, int2):
 """
 
 #Variable Definition
-equ_array=["A+B", "A-B", "A*B", "A/B", "A^B", "c^2=A^2+B^2"]
+equ_array=["A+B", "A-B", "A*B", "A/B", "A^B", "(A^2+B^2)^2"]
 ans=0
 
 #Operator Selection
@@ -37,19 +37,8 @@ while opp!= "quit":
     equ=equ_array[opp-1]
 
     #Value Selection
-    print("Your equation will be in the form of %s" %equ)
-        #---Hypotenuse Value Selection---
-    if opp==7:
-        hyp_opp=input("Would you like to solve for A, B, or C: ")
-        if hyp_opp=="A" or hyp_opp=="B":
-            print("Your equation is now in the form of (A^2-B^2)^0.5")
-        elif hyp_opp=="C":
-            print("Your equation is now in the form of (A^2+B^2)^0.5")
-
-    else:
-        print(" ")
-        #--------------------------------
-    print("Input 'ans' to use previous value for A or B")
+    print("Your equation will be in the form of %s." %equ)
+    print("Input 'ans' to use previous value for A or B.")
     A=input("A= ")
     if A=="ans":
         A=ans
@@ -64,32 +53,25 @@ while opp!= "quit":
     #Operation Execution
     if opp == 1:
         val=A+B
-        print("Your Resulting Value is: %f\n" %val)
+        print("Your Resulting Value is: %f" %val)
     elif opp == 2:
         val=A-B
-        print("Your Resulting Value is: %f\n" %val)
+        print("Your Resulting Value is: %f" %val)
     elif opp == 3:
         val=A*B
-        print("Your Resulting Value is: %f\n" %val)
+        print("Your Resulting Value is: %f" %val)
     elif opp == 4:
         val=A/B
-        print("Your Resulting Value is: %f\n" %val)
+        print("Your Resulting Value is: %f" %val)
     elif opp == 5:
         val=A**B
-        print("Your Resulting Value is: %f\n" %val)
+        print("Your Resulting Value is: %f" %val)
     elif opp == 6:
-        if hyp_opp=="A" or hyp_opp=="B":
-            intval1=A**2
-            intval2=B**2
-            intval3=intval1-intval2
-            val=intval3**0.5
-            print("Your Resulting Value is: %f\n" %val)
-        elif hyp_opp=="C":
-            intval1=A**2
-            intval2=B**2
-            intval3=intval1+intval2
-            val=intval3**0.5
-            print("Your Resulting Value is: %f\n" %val)
+        intval1=A**2
+        intval2=B**2
+        intval3=intval1+intval2
+        val=intval3**0.5
+        print("Your Resulting Value is: %f" %val)
     
     #Remember resulting value
     looper3=True
